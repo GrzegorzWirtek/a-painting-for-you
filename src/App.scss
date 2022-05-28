@@ -1,5 +1,12 @@
 @import './scss/variables.scss';
 
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   margin: 0;
+  background-color:	$main-bcg-color;
+  min-height: 100Vh;
+  overflow: hidden;
 }

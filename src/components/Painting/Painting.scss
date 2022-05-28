@@ -1,0 +1,34 @@
+@import '../../scss/variables.scss';
+
+.painting{
+  min-height: 100Vh;
+  width: 100%;
+  padding: $header-height 0 $footer-height 0;
+  opacity: 0;
+  visibility: hidden;
+
+  &__image-wrapper{
+    margin: 100px auto;
+    border: 2px solid white;
+    width: 80vh;
+
+  }
+
+  &__image{
+    max-width: 100%;
+  }
+}
+
+.painting--start{
+  visibility: visible;
+  animation: show-painting 0.5s 0.5s ease-in forwards;
+}
+
+@keyframes show-painting{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}

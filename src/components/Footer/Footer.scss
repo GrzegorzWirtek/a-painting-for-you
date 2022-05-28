@@ -1,7 +1,9 @@
 @import '../../scss/variables.scss';
 
 .footer{
-  position: relative;
+  position: absolute;
+  left: 0;
+  bottom: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -21,7 +23,7 @@
   @include footer-font();
     transition: 0.1s;
     &:hover{
-      color: rgb(200, 200, 241);
+      color: rgb(132, 132, 166);
     }
   }
 
@@ -38,8 +40,8 @@
 
   &__icon{
     width: 22px;
-    margin: 6px;
-    filter: invert(66%) sepia(58%) saturate(1%) hue-rotate(34deg) brightness(105%) contrast(90%);
+    margin: 0 6px;
+    filter: invert(71%) sepia(0%) saturate(2061%) hue-rotate(49deg) brightness(93%) contrast(101%);
     line-height: 1;
 
     &--in{

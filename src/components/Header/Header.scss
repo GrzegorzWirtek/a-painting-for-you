@@ -1,0 +1,27 @@
+@import '../../scss/variables.scss';
+
+.header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $main-bcg-color;
+  z-index: 2;
+
+  &__title{
+    padding-right: $header-line-margin;
+    color: $main-color;
+    border-right: 1px solid $darken-color;
+    text-align: right;
+  }
+
+  &__title-artic{
+    padding-left: $header-line-margin;
+    color: $darken-color;
+    font-weight: 300;
+  }
+}

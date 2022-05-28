@@ -1,0 +1,23 @@
+.globe{
+  position: relative;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  margin: 0 auto;
+
+  &__img{
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    animation: glob-rotate 5s steps(256) infinite;
+  }
+}
+
+@keyframes glob-rotate{
+ 0%{
+  transform: translateX(0);
+ }
+ 100%{
+  transform: translateX(-100%);
+ }
+}

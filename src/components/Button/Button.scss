@@ -1,0 +1,114 @@
+@import '../../scss/variables.scss';
+
+.button{
+  position: absolute;
+  top: $button-top;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 241px;
+  height: 34px;
+  padding-left: 30px;
+  text-align: left;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.button.button__close{
+  opacity: 0;
+}
+
+.button__hover:hover{
+  background-color: $btn-bcg-color;
+}
+
+.button__span{
+  position: absolute;
+  transform: scale(0);
+  background-color: white;
+  z-index: 1;
+  &:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform-origin: left;
+    animation: border-appearance $button-animation-time $button-animation-delay + $button-animation-time linear forwards;
+  }
+
+  &:nth-child(2){
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    transform-origin: top;
+    animation: border-appearance $button-animation-time $button-animation-delay + ($button-animation-time * 2) linear forwards;
+  }
+
+  &:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    transform-origin: right;
+    animation: border-appearance $button-animation-time $button-animation-delay + ($button-animation-time * 3) linear forwards;
+  }
+
+  
+  &:nth-child(4){
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;;
+    transform-origin: bottom;
+    animation: border-appearance $button-animation-time $button-animation-delay + ($button-animation-time * 4) linear forwards;
+  }
+}
+
+.button__span.button__close{
+  transform: scale(1);
+  &:nth-child(4){
+    animation: border-fading $button-animation-close-time $button-animation-close-time  linear forwards;
+  }
+  &:nth-child(3){
+    animation: border-fading $button-animation-close-time $button-animation-close-time * 2 linear forwards;
+  }
+  &:nth-child(2){
+    animation: border-fading $button-animation-close-time $button-animation-close-time * 3 linear forwards;
+  }
+  &:nth-child(1){
+    animation: border-fading $button-animation-close-time $button-animation-close-time * 4 linear forwards;
+  }
+}
+
+.button__content{
+  opacity: 0;
+  @for $i from 5 through $button-text-length {
+    &:nth-child(#{$i}){
+      animation: letter-apperance 0.7s 0.7 + ($button-letter-appear-time * ($i - 5))  ease-in forwards;
+    }
+  }
+}
+
+@keyframes letter-apperance {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes border-appearance {
+  from {
+    transform: scale(0)
+  }
+
+  to{
+    transform: scale(1);
+  }
+}
+

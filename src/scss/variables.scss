@@ -1,0 +1,25 @@
+@mixin footer-font{
+  font-size: 0.8rem;
+  color: $darken-color;
+  margin-bottom: 10px;
+}
+
+//COLORS
+$main-bcg-color: #202022;
+$btn-bcg-color: rgb(99, 22, 22);
+$main-color: white;
+$darken-color: #a6a6a6;
+$footer-bcg-color:#1a1a1b;
+
+//SIZES
+$header-height: 100px;
+$footer-height: 150px;
+$header-line-margin: 8px;
+$button-top: 46%;
+
+//OTHER
+$button-animation-time: 0.3s;
+$button-animation-close-time: 0.16s;
+$button-animation-delay: 1s;
+$button-letter-appear-time: 0.02s;
+$button-text-length: 28;
