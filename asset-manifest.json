@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/a-painting-for-you/static/css/main.8f553877.css",
+    "main.js": "/a-painting-for-you/static/js/main.4e7ddbce.js",
+    "index.html": "/a-painting-for-you/index.html",
+    "main.8f553877.css.map": "/a-painting-for-you/static/css/main.8f553877.css.map",
+    "main.4e7ddbce.js.map": "/a-painting-for-you/static/js/main.4e7ddbce.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f553877.css",
+    "static/js/main.4e7ddbce.js"
+  ]
+}
