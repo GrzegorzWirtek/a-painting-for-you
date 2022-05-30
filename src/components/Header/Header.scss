@@ -6,6 +6,7 @@
   left: 0;
   width: 100%;
   height: $header-height;
+  padding: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +15,8 @@
 
   &__title{
     padding-right: $header-line-margin;
+    margin-top: 20px;
+    font-size: 1.2rem;
     color: $main-color;
     border-right: 1px solid $darken-color;
     text-align: right;
@@ -21,6 +24,8 @@
 
   &__title-artic{
     padding-left: $header-line-margin;
+    margin-top: 20px;
+    font-size: 1.2rem;
     color: $darken-color;
     font-weight: 300;
   }

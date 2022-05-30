@@ -7,6 +7,6 @@
   flex-wrap: wrap;
   margin: 0;
   background-color:	$main-bcg-color;
-  min-height: 100Vh;
+  min-height: calc(100Vh + $footer-height);
   overflow: hidden;
 }

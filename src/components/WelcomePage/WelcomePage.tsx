@@ -6,14 +6,12 @@ import { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 
 const WelcomePage = () => {
-	const context = useContext(AppContext);
-	if (!context) return null;
 	const {
-		state: { spinnerActive },
-	} = context;
+		state: { spinnerActive, paintingEnd },
+	} = useContext(AppContext);
 
 	return (
-		<div className='welcome'>
+		<div className={`welcome  ${paintingEnd ? 'welcome--end' : ''}`}>
 			<Button />
 			{spinnerActive && <Spinner />}
 		</div>

@@ -34,7 +34,7 @@ export const AppState = ({ children }: { children: ReactNode }) => {
 				title,
 				type: artwork_type_title,
 				date,
-				text: thumbnail.alt_text,
+				text: thumbnail ? thumbnail.alt_text : 'No info',
 			};
 
 			dispatch({ type: 'SET_ARTWORK', payload: artwork });

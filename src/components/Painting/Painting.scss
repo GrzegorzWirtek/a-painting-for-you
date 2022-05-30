@@ -3,28 +3,93 @@
 .painting{
   min-height: 100Vh;
   width: 100%;
-  padding: $header-height 0 $footer-height 0;
-  opacity: 0;
-  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  margin-bottom: 20px;
+  transition: 0.3s ease-in-out;
+  z-index: 3;
+
 
   &__image-wrapper{
-    margin: 100px auto;
-    border: 2px solid white;
-    width: 80vh;
+      position: relative;
+      max-width: fit-content;
+  }
 
+  &__image-curtain{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $main-bcg-color;
+    animation: curtain-off $image-curtain-time $iamge-curtain-delay ease-in forwards;
   }
 
   &__image{
-    max-width: 100%;
+    max-width: 92vw;
+    max-height: 70vh;
+    vertical-align: bottom;
   }
 }
 
 .painting--start{
-  visibility: visible;
-  animation: show-painting 0.5s 0.5s ease-in forwards;
+  display: flex;
 }
 
-@keyframes show-painting{
+.painting--end{
+  opacity: 0;
+}
+
+.painting__text-wrapper{
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: flex;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  z-index: 2;
+  color: $darken-color;
+  animation: show-painting-text $image-curtain-time $iamge-curtain-delay ease-in forwards;
+}
+
+.painting__title{
+  margin-top: 5px;
+  padding-bottom: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.painting__artist{
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.painting__date-and-type{
+  font-weight: 300;
+  font-size: 0.8rem;
+  padding: 3px 0 2px 0;
+}
+
+.painting__text{
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+@keyframes curtain-off {
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}
+
+@keyframes show-painting-text{
   from{
     opacity: 0;
   }
@@ -32,3 +97,5 @@
     opacity: 1;
   }
 }
+
+@include siema();

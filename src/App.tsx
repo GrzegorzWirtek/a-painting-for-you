@@ -2,10 +2,11 @@ import './App.scss';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import WelcomePage from './components/WelcomePage/WelcomePage';
+import Painting from './components/Painting/Painting';
+import Nav from './components/Nav/Nav';
 
 import { useContext, useEffect } from 'react';
 import AppContext from './context/AppContext';
-import Painting from './components/Painting/Painting';
 
 function App() {
 	const {
@@ -22,6 +23,7 @@ function App() {
 			<Header />
 			{welcomePageActive ? <WelcomePage /> : null}
 			{artworkLoaded ? <Painting /> : null}
+			<Nav />
 			<Footer />
 		</div>
 	);

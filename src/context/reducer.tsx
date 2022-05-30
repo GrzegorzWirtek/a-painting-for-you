@@ -1,4 +1,4 @@
-import { StateType, ActionType } from './types';
+import { StateType, ActionType, initialState } from './types';
 
 export const reducer = (state: StateType, action: ActionType) => {
 	switch (action.type) {
@@ -15,6 +15,17 @@ export const reducer = (state: StateType, action: ActionType) => {
 			return { ...state, artwork: action.payload };
 		case 'LOAD_ARTWORK':
 			return { ...state, artworkLoaded: true };
+		case 'ANOTHER_ARTWORK':
+			return { ...state, paintingEnd: true, firstLoading: 'not-first-loading' };
+		case 'CLEAR_ARTWORK':
+			return {
+				...state,
+				artwork: initialState.artwork,
+				artworkLoaded: false,
+				welcomePageActive: true,
+				paintingEnd: false,
+				spinnerCurtainOn: '',
+			};
 		default:
 			return state;
 	}

@@ -1,16 +1,14 @@
 @import '../../scss/variables.scss';
 
 .footer{
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  align-self: flex-end;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   width: 100%;
   padding: 40px 0 20px 0;
-  margin-top: 40px;
+  margin-top: 20px;
   background: $footer-bcg-color;
   z-index: 2;
 
@@ -39,7 +37,7 @@
   }
 
   &__icon{
-    width: 22px;
+    width: 18px;
     margin: 0 6px;
     filter: invert(71%) sepia(0%) saturate(2061%) hue-rotate(49deg) brightness(93%) contrast(101%);
     line-height: 1;

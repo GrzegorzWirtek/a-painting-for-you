@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import AppContext from '../../context/AppContext';
 
 const CONTENT = 'See the painting for you';
-const HOVER_DELAY = 2300;
+const HOVER_DELAY = 1500;
 
 const Button = () => {
 	const contentArr: string[] = CONTENT.split('');
@@ -12,7 +12,7 @@ const Button = () => {
 	const context = useContext(AppContext);
 	const {
 		dispatch,
-		state: { artwork, artworkLoaded },
+		state: { artwork, artworkLoaded, spinnerActive, firstLoading },
 	} = context;
 
 	const spans = contentArr.map((letter, index) => (
@@ -28,33 +28,32 @@ const Button = () => {
 		const hoverSetTimeout = setTimeout(() => {
 			setHoverClass('button__hover');
 		}, HOVER_DELAY);
+		if (artworkLoaded && spinnerActive) {
+			dispatch({ type: 'SPINNER_CURTAIN_ON' });
+			setTimeout(() => {
+				dispatch({ type: 'WELCOME_PAGE_OFF' });
+			}, 300);
+		}
+
 		return () => {
 			clearTimeout(hoverSetTimeout);
 		};
-	}, [artwork, dispatch]);
+	}, [artwork, dispatch, artworkLoaded, spinnerActive]);
 
 	const handleClick = () => {
 		if (hoverClass === '') return;
 		setCloseClass('button__close');
 		dispatch({ type: 'SPINNER_ACTIVE' });
-		setTimeout(() => {
-			if (artworkLoaded) {
-				dispatch({ type: 'SPINNER_CURTAIN_ON' });
-			}
-			setTimeout(() => {
-				dispatch({ type: 'WELCOME_PAGE_OFF' });
-			}, 300);
-		}, 2000);
 	};
 
 	return (
 		<button
-			className={`button ${closeClass} ${hoverClass}`}
+			className={`button ${closeClass} ${hoverClass} ${firstLoading}`}
 			onClick={handleClick}>
-			<span className='button__span'></span>
-			<span className='button__span'></span>
-			<span className='button__span'></span>
-			<span className='button__span'></span>
+			<span className='border__span border__span--b1'></span>
+			<span className='border__span border__span--b2'></span>
+			<span className='border__span border__span--b3'></span>
+			<span className='border__span border__span--b4'></span>
 			{spans}
 		</button>
 	);

@@ -21,11 +21,9 @@ const Spinner = () => {
 		return () => clearInterval(dotInterval);
 	}, [dot]);
 
-	const context = useContext(AppContext);
-	if (!context) return null;
 	const {
 		state: { spinnerCurtainOn },
-	} = context;
+	} = useContext(AppContext);
 
 	return (
 		<div className='spinner'>
