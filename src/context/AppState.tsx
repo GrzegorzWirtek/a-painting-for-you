@@ -25,7 +25,10 @@ export const AppState = ({ children }: { children: ReactNode }) => {
 				date_end,
 				thumbnail,
 			} = data.data;
-			const date = date_end ? `${date_start}-${date_end}` : date_start;
+			const date =
+				!date_end || date_end === date_start
+					? date_start
+					: `${date_start}-${date_end}`;
 
 			const artwork: PayloadType = {
 				id,
@@ -47,7 +50,7 @@ export const AppState = ({ children }: { children: ReactNode }) => {
 		const page = Math.floor(Math.random() * PAGES);
 		try {
 			const { data } = await axios(
-				`${BASE_URL}artists?page=${page}fields=artwork_ids`,
+				`${BASE_URL}artists?page=${page}&fields=artwork_ids`,
 			);
 			const ids = data.data.reduce(
 				(acc: [], arr: { artwork_ids: number[] }) => {

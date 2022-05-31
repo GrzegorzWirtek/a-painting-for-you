@@ -1,9 +1,8 @@
 @import '../../scss/variables.scss';
 
 .nav{
-  opacity: 0;
-  transition: $image-curtain-time $iamge-curtain-delay ease-in-out;
-  margin: 15px 0 30px 0;
+  opacity: 1;
+  margin: 60px auto 30px auto;
 }
 
 .nav__button{
@@ -17,18 +16,11 @@
   cursor: pointer;
   z-index: 3;
 
-  &:hover{
-    color: $main-color;
-    border: 2px solid $main-color;
-    background-color: $btn-bcg-color;
+  @media (min-width: 800px){
+    &:hover{
+      color: $main-color;
+      border: 2px solid $main-color;
+      background-color: $btn-bcg-color;
+    }
   }
-}
-
-.nav--start{
-  opacity: 1;
-}
-
-nav.nav--end{
-  transition: 0.3s;
-  opacity: 0;
 }

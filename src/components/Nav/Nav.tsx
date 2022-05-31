@@ -1,14 +1,9 @@
 import { useContext } from 'react';
 import AppContext from '../../context/AppContext';
-// import { initialState } from '../../context/types';
 import './Nav.scss';
 
 const Nav = () => {
-	const {
-		dispatch,
-		state: { welcomePageActive, paintingEnd },
-		getArtworkIds,
-	} = useContext(AppContext);
+	const { dispatch, getArtworkIds } = useContext(AppContext);
 
 	const handleAnotherPainting = () => {
 		dispatch({ type: 'ANOTHER_ARTWORK' });
@@ -19,10 +14,7 @@ const Nav = () => {
 	};
 
 	return (
-		<nav
-			className={`nav ${welcomePageActive ? '' : 'nav--start'} ${
-				paintingEnd ? 'nav--end' : ''
-			}`}>
+		<nav className='nav'>
 			<button className='nav__button' onClick={handleAnotherPainting}>
 				Another painting
 			</button>

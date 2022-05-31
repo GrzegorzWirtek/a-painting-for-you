@@ -5,16 +5,25 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   display: none;
-  margin-bottom: 20px;
   transition: 0.3s ease-in-out;
   z-index: 3;
 
+  &__content-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  
 
   &__image-wrapper{
       position: relative;
       max-width: fit-content;
+      margin: 8vh auto 0 auto;
+
+      @media(min-width: 800px){
+        margin-top: 5vh;
+      }
   }
 
   &__image-curtain{
@@ -31,6 +40,10 @@
     max-width: 92vw;
     max-height: 70vh;
     vertical-align: bottom;
+
+    @media(min-width: 800px){
+      max-height: 68vh;
+    }
   }
 }
 
@@ -43,13 +56,10 @@
 }
 
 .painting__text-wrapper{
-  position: absolute;
-  left: 0;
-  top: 100%;
-  display: flex;
-  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 92vw;
   opacity: 0;
   z-index: 2;
   color: $darken-color;

@@ -1,10 +1,7 @@
 @import '../../scss/variables.scss';
 
 .header{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  align-self: flex-start;
   height: $header-height;
   padding: 0 10px;
   display: flex;
