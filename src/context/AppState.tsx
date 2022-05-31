@@ -43,6 +43,7 @@ export const AppState = ({ children }: { children: ReactNode }) => {
 			dispatch({ type: 'SET_ARTWORK', payload: artwork });
 		} catch (error) {
 			console.log('Get painting error: ', error);
+			getPainting(artworkId);
 		}
 	}, []);
 
@@ -62,6 +63,7 @@ export const AppState = ({ children }: { children: ReactNode }) => {
 			getPainting(id);
 		} catch (error) {
 			console.log('Get artwork ids error: ', error);
+			getArtworkIds();
 		}
 	}, [getPainting]);
 
