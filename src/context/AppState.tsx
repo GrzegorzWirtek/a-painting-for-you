@@ -12,9 +12,10 @@ const ARTWORKS_URL = 'artworks/';
 export const AppState = ({ children }: { children: ReactNode }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	const getPainting = useCallback(async (artworkId: number) => {
+	const getPainting = useCallback(async (ids: number[]) => {
+		const randomId = ids[Math.floor(Math.random() * ids.length)];
 		try {
-			const { data } = await axios(`${BASE_URL}${ARTWORKS_URL}${artworkId}`);
+			const { data } = await axios(`${BASE_URL}${ARTWORKS_URL}${randomId}`);
 			const {
 				id,
 				image_id,
@@ -43,7 +44,7 @@ export const AppState = ({ children }: { children: ReactNode }) => {
 			dispatch({ type: 'SET_ARTWORK', payload: artwork });
 		} catch (error) {
 			console.log('Get painting error: ', error);
-			getPainting(artworkId);
+			getPainting(ids);
 		}
 	}, []);
 
@@ -59,8 +60,8 @@ export const AppState = ({ children }: { children: ReactNode }) => {
 				},
 				[],
 			);
-			const id = ids[Math.floor(Math.random() * ids.length)];
-			getPainting(id);
+
+			getPainting(ids);
 		} catch (error) {
 			console.log('Get artwork ids error: ', error);
 			getArtworkIds();
