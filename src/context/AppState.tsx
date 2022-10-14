@@ -6,7 +6,7 @@ import { initialState, PayloadType } from './types';
 import axios from 'axios';
 
 const BASE_URL = 'https://api.artic.edu/api/v1/';
-const PAGES = 1081;
+const TOTAL_PAGES = 9766;
 const ARTWORKS_URL = 'artworks/';
 
 export const AppState = ({ children }: { children: ReactNode }) => {
@@ -49,17 +49,14 @@ export const AppState = ({ children }: { children: ReactNode }) => {
 	}, []);
 
 	const getArtworkIds = useCallback(async () => {
-		const page = Math.floor(Math.random() * PAGES);
+		const page = Math.floor(Math.random() * TOTAL_PAGES);
 		try {
 			const { data } = await axios(
-				`${BASE_URL}artists?page=${page}&fields=artwork_ids`,
+				`${BASE_URL}artworks?page=${page}&fields=artist_id`,
 			);
-			const ids = data.data.reduce(
-				(acc: [], arr: { artwork_ids: number[] }) => {
-					return [...acc, ...arr.artwork_ids];
-				},
-				[],
-			);
+			const ids = data.data
+				.map((item: { artist_id: string }) => item.artist_id)
+				.filter((id: number) => id !== null);
 
 			getPainting(ids);
 		} catch (error) {
