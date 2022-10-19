@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/a-painting-for-you/static/css/main.3cbae37d.css",
-    "main.js": "/a-painting-for-you/static/js/main.05d6fb95.js",
-    "index.html": "/a-painting-for-you/index.html",
-    "main.3cbae37d.css.map": "/a-painting-for-you/static/css/main.3cbae37d.css.map",
-    "main.05d6fb95.js.map": "/a-painting-for-you/static/js/main.05d6fb95.js.map"
+    "main.css": "/static/css/main.3cbae37d.css",
+    "main.js": "/static/js/main.dfc1f0ee.js",
+    "index.html": "/index.html",
+    "main.3cbae37d.css.map": "/static/css/main.3cbae37d.css.map",
+    "main.dfc1f0ee.js.map": "/static/js/main.dfc1f0ee.js.map"
   },
   "entrypoints": [
     "static/css/main.3cbae37d.css",
-    "static/js/main.05d6fb95.js"
+    "static/js/main.dfc1f0ee.js"
   ]
 }
